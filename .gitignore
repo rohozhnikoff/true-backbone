@@ -28,4 +28,4 @@ node_modules
 .lock-wscript
 builds
 .idea
-bower-components
+bower_components

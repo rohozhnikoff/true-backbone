@@ -33,25 +33,27 @@ $( ->
   header = $('h1')
   status = $('h2')
   capturing = false
-  basePosition = {}
+  currentStatus = ''
 
   onFaceData = (a,b, data)->
     face = data.faces[0]?.pose
-    return unless face?
-    if not _.isEmpty(basePosition)
-      dZ = basePosition.headPosition.headCenter.z - face.headPosition.headCenter.z
-      if dZ > 20
-        status.text('Надто нахилились, випрямтесь!')
-      else if dZ < -20
-        status.text('Сильно відхилились, сядьте рівно')
-      else
-        status.text('Чудово, Ви сидите рівно')
+    if not face?
+      currentStatus = "We've lost you"
+      status.text(currentStatus)
+      return
+    if head?
+      newStatus = head.checkDistance(face)
+      console.log(currentStatus)
+      return if newStatus is currentStatus
+
+      currentStatus = newStatus
+      status.text(currentStatus)
 
 
     if capturing
-      basePosition = face
+      window.head = new Head(face)
       capturing = false
-      console.log(basePosition)
+      console.log(head)
       status.text('Базова позиція зафіксована')
 
 

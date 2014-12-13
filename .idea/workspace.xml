@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a49e2f58-7362-4217-b152-eef82ef09591" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\true-backbone.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\.idea\watcherTasks.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\bower.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\component.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\package.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\underscore-min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\underscore-min.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\www\true-backbone\bower_components\underscore\underscore.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/first.coffee" afterPath="$PROJECT_DIR$/app/first.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/head.coffee" afterPath="$PROJECT_DIR$/app/head.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="true-backbone.iws" />
@@ -70,8 +55,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="442">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="459">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -79,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="first.coffee" pinned="false" current-in-tab="false">
+      <file leaf-file-name="first.coffee" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/first.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="751" max-vertical-offset="1428">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6699507" vertical-offset="425" max-vertical-offset="1462">
+              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -92,18 +77,8 @@
       <file leaf-file-name="head.coffee" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/head.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8150685" vertical-offset="0" max-vertical-offset="612">
-              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="850">
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -120,10 +95,10 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/face_example.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/first.coffee" />
-        <option value="$PROJECT_DIR$/app/head.coffee" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/head.coffee" />
+        <option value="$PROJECT_DIR$/app/first.coffee" />
       </list>
     </option>
   </component>
@@ -174,20 +149,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="true-backbone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="true-backbone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="true-backbone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,36 +403,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43664384" vertical-offset="0" max-vertical-offset="612">
+          <caret line="15" column="81" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="442">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="459">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/first.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="751" max-vertical-offset="1428">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/head.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="850">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/first.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8150685" vertical-offset="0" max-vertical-offset="612">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.6699507" vertical-offset="425" max-vertical-offset="1462">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding />
         </state>
       </provider>
