@@ -41,9 +41,10 @@ $( ->
       currentStatus = "We've lost you"
       status.text(currentStatus)
       return
+
     if head?
       newStatus = head.checkDistance(face)
-      console.log(currentStatus)
+      head.chechIncline(face)
       return if newStatus is currentStatus
 
       currentStatus = newStatus
@@ -54,7 +55,7 @@ $( ->
       window.head = new Head(face)
       capturing = false
       console.log(head)
-      status.text('Базова позиція зафіксована')
+      header.text('Big brother is watching you...')
 
 
   onStatus = ->

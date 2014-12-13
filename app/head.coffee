@@ -11,6 +11,13 @@ class @Head
     diff = @headPosition.headCenter.z - pose.headPosition.headCenter.z
     return diff < maxBack
 
+  chechIncline: (pose) ->
+    {pitch, roll, yaw} = pose.poseAngles
+    #pitch - up/down
+    #yaw - left/right
+    #roll - around Oz axis
+    console.log(@.poseAngles.pitch - pitch)
+
   checkDistance: (pose) ->
     status = if @toFar(pose) then 'far'
     else if @toClose(pose) then 'close'
@@ -35,7 +42,7 @@ class @Head
     seatingTime = Date.now() - startTime
     message = ''
     if status isnt 'ok' and seatingTime > maxTimeForBadPosition
-      message = "Ups, you to #{status} for #{seatingTime/1000} seconds"
+      message = "Ups, you to #{status} for #{Math.floor(seatingTime/1000)} seconds"
 
     return message
 
