@@ -1,0 +1,16 @@
+{
+  "name": "true-backbone",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rogozhnikoff/true-backbone",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "underscore": "~1.7.0"
+  }
+}

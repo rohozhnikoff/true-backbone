@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intel(R) RealSense(TM) SDK Web Sample</title>
+
+    <script type="text/javascript" src="lib\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="lib\promise-1.0.0.min.js"></script>
+    <script type="text/javascript" src="lib\realsense-3.0.js"></script>
+    <script type="text/javascript" src="lib\realsenseinfo-3.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sense;
+            var imageSize;
+            var faceConfiguration;
+
+            // check platform compatibility
+            RealSenseInfo(['face3d'], function (info) {
+                if (info.IsReady == true) {
+                    $('#info').append('<b>Platform supports Intel(R) RealSense(TM) SDK feature</b>');
+                    status('OK');
+                    document.getElementById("Start").disabled = false;
+                } else {
+                    status('Platform not supported: ' + info.responseText);
+                    if (info.IsPlatformSupported != true) {
+                        $('#info').append('<b>Intel� RealSense� 3D camera not found</b>');
+                    } else if (info.IsBrowserSupported != true) {
+                        $('#info').append('<b>Please update your browser to latest version</b>');
+                    } else {
+                        $('#info').append('<b>Please download and install the following update(s) before running sample: </b>');
+                        for (i = 0; i < info.Updates.length; i++) {
+                            $('#info').append('<a href="' + info.Updates[i].url + '">' + info.Updates[i].href + '</a><br>');
+                        }
+                    }
+                }
+            })
+
+            $('#Start').click(function () {
+                document.getElementById("Start").disabled = true;
+                PXCMSenseManager_CreateInstance().then(function (result) {
+                    sense = result;
+                    return sense.EnableFace(onFaceData);
+                }).then(function (result) {
+                    return result.CreateActiveConfiguration();
+                }).then(function (result) {
+                    faceConfiguration = result;
+                    faceConfiguration.configs.detection.isEnabled = document.getElementById("detection").checked;
+                    faceConfiguration.configs.landmarks.isEnabled = document.getElementById("landmarks").checked;
+                    faceConfiguration.configs.pose.isEnabled = document.getElementById("pose").checked;
+                    faceConfiguration.configs.expressionProperties.isEnabled = document.getElementById("expressions").checked;
+                    var selects = document.getElementById("mode");
+                    var mode = Number(selects.options[selects.selectedIndex].value);
+                    console.log('mode = ', mode, '; select = ', selects.options[selects.selectedIndex].value);
+                    return faceConfiguration.SetTrackingMode(mode);
+                }).then(function (result) {
+                    return faceConfiguration.ApplyChanges();
+                }).then(function (result) {
+                    status('Init started');
+                    return sense.Init(null, onStatus);
+                }).then(function (result) {
+                    return sense.QueryCaptureManager();
+                }).then(function (capture) {
+                    return capture.QueryImageSize(pxcmConst.PXCMCapture.STREAM_TYPE_COLOR);
+                }).then(function (result) {
+                    imageSize = result.size;
+                    return sense.StreamFrames();
+                }).then(function (result) {
+                    status('Streaming ' + imageSize.width + 'x' + imageSize.height);
+                    document.getElementById("Stop").disabled = false;
+                }).catch(function (error) {
+                    status('Init failed: ' + JSON.stringify(error));
+                    document.getElementById("Start").disabled = false;
+                });
+            });
+
+            function clear() {
+                $('#pose_status').text('');
+                $('#expressions_status').text('');
+                document.getElementById("Start").disabled = false;
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            $('#Stop').click(function () {
+                document.getElementById("Stop").disabled = true;
+                sense.Close().then(function (result) {
+                    status('Stopped');
+                    clear();
+                });
+            });
+
+            function onFaceData(mid, module, data) {
+                console.log(arguments);
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+
+                canvas.width = imageSize.width;
+                canvas.height = imageSize.height;
+
+                if (data.faces == 'undefined') return;
+                for (f = 0; f < data.faces.length; f++) {
+                    var face = data.faces[f];
+                    if (face.detection != null) {
+                        if (face.detection.faceBoundingRect !== 'undefined') {
+                            var rectangle = face.detection.faceBoundingRect;
+                            context.beginPath();
+                            context.lineWidth = 4;
+                            context.strokeStyle = 'green';
+                            context.rect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+                            context.stroke();
+                        }
+                    }
+                    if (face.landmarks.landmarksPoints !== 'undefined') {
+                        for (var i = 0; i < face.landmarks.landmarksPoints.length; i++) {
+                            point = face.landmarks.landmarksPoints[i];
+                            if (point != null) {
+                                context.beginPath();
+                                context.arc(point.image.x, point.image.y, 2, 0, 2 * Math.PI);
+                                context.lineWidth = 2;
+                                context.strokeStyle = 'red';
+                                context.stroke();
+                            }
+                        }
+                    }
+                    if (face.pose !== 'undefined' && face.pose != null) {
+                        $('#pose_status').text('Pose: ' + JSON.stringify(face.pose));
+                    } else {
+                        $('#pose_status').text('');
+                    }
+                    if (face.expressions !== 'undefined' && face.expressions != null) {
+                        $('#expressions_status').text('Expressions: ' + JSON.stringify(face.expressions));
+                    } else {
+                        $('#expressions_status').text('');
+                    }
+                }
+            }
+
+            function onStatus(data) {
+                if (data.sts < 0) {
+                    status('Error ' + data.sts + ' on module ' + data.mid);
+                    clear();
+                }
+            }
+
+            function status(msg) {
+                $('#status').text(msg);
+            }
+        });
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="container">
+
+        <h1>Intel(R) RealSense(TM) SDK Face Tracking Web Sample</h1>
+        <div id="info"></div>
+        <br>
+        <select id="mode">
+            <option value=0>2D</option>
+            <option value=1 selected="selected">3D</option>
+        </select>
+        Mode
+        <input id="detection" type="checkbox" checked="checked"" />Detection
+        <input id="landmarks" type="checkbox" checked="checked"" />Landmarks
+        <input id="pose" type="checkbox"" />Pose
+        <input id="expressions" type="checkbox"" />Expressions
+        <br>
+        <br>
+        <button id="Start">Start</button>
+        <button id="Stop" disabled="disabled">Stop</button>
+        <br>
+        <br>
+
+        <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
+
+        <div id="pose_status"></div>
+        <div id="expressions_status"></div>
+        <br>
+        Status:<div id="status"></div>
+    </div>
+</div>
+</body>
+</html>
