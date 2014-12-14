@@ -1,0 +1,46 @@
+{
+  "name": "true-backbone",
+  "version": "1.0.0",
+  "description": "true-backbone =============",
+  "main": "index.html",
+  "scripts": {
+    "start": "nodewebkit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogozhnikoff/true-backbone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogozhnikoff/true-backbone/issues"
+  },
+  "homepage": "https://github.com/rogozhnikoff/true-backbone",
+  "dependencies": {
+    "bootstrap": "^3.3.1",
+    "jquery": "^2.1.1"
+  },
+  "window": {
+    "toolbar": true,
+    "title": "True Backbone Tracker",
+    "icon": "assets/img/favicon.png",
+    "frame": false,
+    "width": 800,
+    "height": 500,
+    "position": "mouse",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 650,
+    "as_desktop": true,
+    "resizable": true,
+    "always-on-top": false,
+    "fullscreen": false,
+    "show_in_taskbar": true,
+    "show": true,
+    "transparent": false
+  },
+  "single-instance": true,
+  "webkit": {}
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <script>
+        var gui = require('nw.gui');
+        var winMenu = new gui.Menu({
+            type: 'menubar'
+        });
+        console.log(winMenu);
+        winMenu.append(new gui.MenuItem({ label: 'Fuck 123' }));
+        console.log(123, gui.Window);
+        console.log(234, gui.Window.get());
+        console.log(345, gui.Window.get().menu);
+        gui.Window.get().menu = winMenu;
+    </script>
+    <script>
+        var gui = require('nw.gui');
+        var win = gui.Window.get([global.window]);
+//        win.showDevTools();
+
+        setTimeout(function(){
+            win.maximize();
+            win.setBadgeLabel(2)
+        }, 2500);
+    </script>
+
+    <script>
+//        var menu = new gui.Menu({
+//            type: 'menubar'
+//        });
+//        gui.Window.get().menu = menu;
+//
+//        menu.append(new gui.MenuItem({ label: 'Item A' }));
+//        menu.append(new gui.MenuItem({ label: 'Item B' }));
+//        menu.append(new gui.MenuItem({ type: 'separator' }));
+//        menu.append(new gui.MenuItem({ label: 'Item C' }));
+//
+//        document.addEventListener('click', function(ev){
+//            menu.popup(ev.pageX, ev.pageY);
+//        }, false);
+    </script>
+    <script>
+        var $ = global.$ = require('./node_modules/jquery/dist/jquery');
+        require('./app/start.js')();
+
+        $(function(){
+            setTimeout(function(){
+                $('h1').text('I want to play a game with you!!!!!11!1!!1')
+            }, 1500)
+        });
+
+
+    </script>
+</head>
+<body>
+<div>
+    <div class="container">
+        <h1>Hello TRUE-Backbone Coders</h1>
+    </div>
+</div>
+</body>
+</html>
